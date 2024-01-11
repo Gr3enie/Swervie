@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.math.Vector;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -68,7 +67,11 @@ public class SwerveSubsystem extends SubsystemBase {
     double bly =  x - (Constants.turnMult * rotate);
     double brx =  x - (Constants.turnMult * rotate);
     double bry =  x + (Constants.turnMult * rotate);
-    double maxDist = Math.max(Math.max(Math.max(Math.sqrt(Math.pow(flx,2) + Math.pow(fly,2)),Math.sqrt(Math.pow(frx,2) + Math.pow(fry,2))),Math.max(Math.sqrt(Math.pow(blx,2) + Math.pow(bly,2)),Math.sqrt(Math.pow(brx,2) + Math.pow(bry,2)))),1.0);
+    double maxDist = Functions.Max(new double[]{
+      Math.sqrt(Math.pow(flx,2) + Math.pow(fly,2)),
+      Math.sqrt(Math.pow(frx,2) + Math.pow(fry,2)),
+      Math.sqrt(Math.pow(blx,2) + Math.pow(bly,2)),
+      Math.sqrt(Math.pow(brx,2) + Math.pow(bry,2)),1.0});
     double flAngle = Math.atan2(fly,flx);
     double frAngle = Math.atan2(fry,frx);
     double blAngle = Math.atan2(bly,blx);

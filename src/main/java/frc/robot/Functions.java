@@ -28,4 +28,11 @@ public class Functions {
     public static double ClampMax (double in, double max) {
         return Math.min(in,max);
     }
+    public static double Max (double[]values) {
+        double max = values[0];
+        for (int i = 0; i < values.length; i++) {
+            max = (values[i]>max)?values[i]:max;
+        }
+        return max;
+    }
 }
